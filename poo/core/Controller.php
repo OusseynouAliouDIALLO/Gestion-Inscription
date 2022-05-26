@@ -2,6 +2,7 @@
 namespace App\Core;
 class Controller{
     protected Request $request;
+    protected string $layout="base";
     public function __construct(Request $request)
     {
         $this->request= $request;
@@ -13,7 +14,10 @@ class Controller{
     }
 
     public function render(string $path){
+      ob_start();
         require_once(ROOT."views/".$path.".html.php");
+          $content_for_views=ob_get_clean();
+        require_once(ROOT."views/layout/".$this->layout.".html.php");
     }
 
 

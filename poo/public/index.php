@@ -1,6 +1,6 @@
 <?php
 /**
- *  url:  localhost:8001
+ *  url:  localhost:8000/uri 
  * uri => uniform ressource identfier => controller/use case
  * controller => classe
  *      use case   uri
@@ -34,11 +34,10 @@ $router=new Router();
 
 $router->route("/",[SecuriteController::class,"connexion"]);
 $router->route("/logout",[SecuriteController::class,"deconnexion"]);
-$router->route("/classe",[ClasseController::class,"inscrire"]);
-$router->route("/classe-add",[ClasseController::class,"lister"]);
-$router->route("/classe-up",[ClasseController::class,"flitrer"]);
-$router->route("/classe-del",[ClasseController::class,"afficher"]);
-$router->route("/classe-del",[ClasseController::class,"Dossier"]);
+$router->route("/classe",[ClasseController::class,"lister"]);
+$router->route("/classe-add",[ClasseController::class,"ajouter"]);
+$router->route("/classe-up",[ClasseController::class,"modifier"]);
+$router->route("/classe-del",[ClasseController::class,"supprimer"]);
 
 try {
   $router->resolve();
